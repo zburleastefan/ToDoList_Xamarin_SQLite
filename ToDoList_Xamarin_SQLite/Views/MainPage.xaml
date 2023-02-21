@@ -35,8 +35,8 @@
             <Button Text="Delete All" Clicked="OnEraseClicked" HorizontalOptions="EndAndExpand" BackgroundColor="Red" Padding="10"  />
         </StackLayout>
 
-        <StackLayout>
-            <Label HorizontalOptions="CenterAndExpand" Text="Swipe to the left to Edit/Delete" TextColor="Silver" FontSize="Small"/>
+        <StackLayout Margin="5">
+            <Label HorizontalOptions="CenterAndExpand" Text="Swipe left to Edit/Delete" TextColor="Silver" FontSize="Small"/>
         </StackLayout>
         
         <CollectionView x:Name="collectionView">
