@@ -1,5 +1,4 @@
 ﻿using System;
-using ToDoList_Xamarin_SQLite.Services;
 using ToDoList_Xamarin_SQLite.Views;
 using ToDoList_Xamarin_SQLite.Models;
 using Xamarin.Forms;
@@ -27,8 +26,6 @@ namespace ToDoList_Xamarin_SQLite
         public App()
         {
             InitializeComponent();
-
-            DependencyService.Register<MockDataStore>();
             MainPage = new AppShell();
         }
 

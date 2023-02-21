@@ -2,16 +2,11 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using ToDoList_Xamarin_SQLite.Models;
-using ToDoList_Xamarin_SQLite.Services;
-using Xamarin.Forms;
 
 namespace ToDoList_Xamarin_SQLite.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
-
         bool isBusy = false;
         public bool IsBusy
         {

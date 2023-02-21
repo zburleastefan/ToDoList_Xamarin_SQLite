@@ -77,6 +77,10 @@ namespace ToDoList_Xamarin_SQLite.Views
                 collectionView.ItemsSource = await App.Database.GetPeopleAsync();
             }
             //await Navigation.PushAsync(new AddPersonPage());
+            // This will push the ItemDetailPage onto the navigation stack
+            //await Shell.Current.GoToAsync($"{nameof(ItemDetailPage)}?{nameof(ItemDetailViewModel.ItemId)}={item.Id}");
+            // This will pop the current page off the navigation stack
+            //await Shell.Current.GoToAsync("..");
         }
     }
 }
