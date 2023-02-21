@@ -145,4 +145,7 @@
       <Name>ToDoList_Xamarin_SQLite</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\remove.png" />
+  </ItemGroup>
 </Project>

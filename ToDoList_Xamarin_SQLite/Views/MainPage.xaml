@@ -34,21 +34,26 @@
             <Button Text="Add" Clicked="OnAddClicked" HorizontalOptions="StartAndExpand" BackgroundColor="Green" Padding="10"/>
             <Button Text="Delete All" Clicked="OnEraseClicked" HorizontalOptions="EndAndExpand" BackgroundColor="Red" Padding="10"  />
         </StackLayout>
+
+        <StackLayout>
+            <Label HorizontalOptions="CenterAndExpand" Text="Swipe to the left to Edit/Delete" TextColor="Silver" FontSize="Small"/>
+        </StackLayout>
         
         <CollectionView x:Name="collectionView">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <SwipeView>
+                    <SwipeView BackgroundColor="White">
                         <SwipeView.RightItems>
                             <SwipeItems>
-                                <SwipeItem Text="Edit"
-                                           BackgroundColor="AliceBlue"
-                                           CommandParameter="{Binding .}"
-                                           Invoked="SwipeItemEdit_Invoked"/>
-                                <SwipeItem Text="Delete"
-                                           BackgroundColor="Red"
+                                <SwipeItem Text="Del"
+                                           BackgroundColor="Gray"
+                                           IconImageSource="remove.png"
                                            CommandParameter="{Binding .}"
                                            Invoked="SwipeItemDelete_Invoked"/>
+                                <SwipeItem Text="Edit"
+                                           BackgroundColor="CornflowerBlue"
+                                           CommandParameter="{Binding .}"
+                                           Invoked="SwipeItemEdit_Invoked"/>
                             </SwipeItems>
                         </SwipeView.RightItems>
                         <StackLayout>
