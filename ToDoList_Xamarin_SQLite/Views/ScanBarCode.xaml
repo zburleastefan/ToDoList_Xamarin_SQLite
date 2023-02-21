@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"        
+             xmlns:local="http://schemas.android.com/apk/res-auto" 
+             xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
+             xmlns:xct ="http://xamarin.com/schemas/2020/toolkit" 
+             x:Class="ToDoList_Xamarin_SQLite.Views.ScanBarCode" 
+	         Title="Scan Barcode">
+
+
+    <!--xmlns:local="clr-namespace:SynapsaMobile"-->
+
+    <!--<Shell.BackButtonBehavior>
+        <BackButtonBehavior
+        Command="{Binding GoBackCommand}"
+        IsEnabled="False"
+        IconOverride="transparent.png"
+         />
+        </Shell.BackButtonBehavior>-->
+
+    <!--<ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="home.png" Clicked="backToMainClicked"/>
+    </ContentPage.ToolbarItems>-->
+
+    <StackLayout Spacing="40" Padding="30">
+        <Label TextColor="White"
+			   Text="Cautare articole" />
+        <!--<BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="White"/>-->
+        <StackLayout>
+            <Entry IsEnabled="False" FontAttributes="Bold" Text="" x:Name="enCodBare" Placeholder="Scan Barcode"/>
+            <Button Text="Flash On" Clicked="Button_Clicked" x:Name="flashBtn" BackgroundColor="Green"/>
+            <zxing:ZXingScannerView 
+                x:Name="BarcodeScanView" 
+                HeightRequest="200" 
+                OnScanResult="Handle_OnScanResult"
+                IsEnabled="True"
+                IsScanning="True"
+                />
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

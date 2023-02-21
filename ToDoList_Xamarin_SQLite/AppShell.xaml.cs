@@ -13,6 +13,7 @@ namespace ToDoList_Xamarin_SQLite
             InitializeComponent();
             Routing.RegisterRoute(nameof(MainPage), typeof(MainPage));
             Routing.RegisterRoute(nameof(LoginPage), typeof(LoginPage));
+            Routing.RegisterRoute(nameof(ScanBarCode), typeof(ScanBarCode));
         }
 
     }

@@ -31,8 +31,8 @@
 
     <TabBar>
         <ShellContent Title="Main" Icon="icon_feed.png" Route="MainPage" ContentTemplate="{DataTemplate local:MainPage}" />
-        <ShellContent Title="Login" Icon="icon_about.png" Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" />
-        <!--<ShellContent Title="Browse" Icon="icon_feed.png" ContentTemplate="{DataTemplate local:ItemsPage}" />-->
+        <!--<ShellContent Title="Login" Icon="icon_about.png" Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" />-->
+        <ShellContent Title="Scan" Icon="icon_about.png" Route="ScanBarCode" ContentTemplate="{DataTemplate local:ScanBarCode}" />
     </TabBar>
 
     <!--
