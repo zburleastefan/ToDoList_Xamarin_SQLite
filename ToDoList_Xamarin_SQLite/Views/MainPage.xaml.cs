@@ -40,7 +40,7 @@ namespace ToDoList_Xamarin_SQLite.Views
 
         async void OnEraseClicked(object sender, EventArgs e)
         {
-            var result = await DisplayAlert("Erase All Database", "Erase all Database?", "Yes", "No");
+            var result = await DisplayAlert("Delete All from Database", "Erase all Tasks?", "Yes", "No");
             if (result)
             {
                 await App.Database.ErasePersonTableAsync();
@@ -63,7 +63,7 @@ namespace ToDoList_Xamarin_SQLite.Views
             var person = item.CommandParameter as Person;
             //await Navigation.PushAsync(new AddPersonPage());
             //await App.Database.DeletePersonAsync(person);
-            await App.Current.MainPage.DisplayAlert("", "Edited person", "OK");
+            await App.Current.MainPage.DisplayAlert("", "Edited", "OK");
         }
 
         async void SwipeItemDelete_Invoked(object sender, EventArgs e)

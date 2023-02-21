@@ -45,13 +45,14 @@
                     <SwipeView BackgroundColor="White">
                         <SwipeView.RightItems>
                             <SwipeItems>
-                                <SwipeItem Text="Del"
-                                           BackgroundColor="Gray"
+                                <SwipeItem Text="Delete"
+                                           BackgroundColor="OrangeRed"
                                            IconImageSource="remove.png"
                                            CommandParameter="{Binding .}"
                                            Invoked="SwipeItemDelete_Invoked"/>
                                 <SwipeItem Text="Edit"
                                            BackgroundColor="CornflowerBlue"
+                                           IconImageSource="edit.png"
                                            CommandParameter="{Binding .}"
                                            Invoked="SwipeItemEdit_Invoked"/>
                             </SwipeItems>
