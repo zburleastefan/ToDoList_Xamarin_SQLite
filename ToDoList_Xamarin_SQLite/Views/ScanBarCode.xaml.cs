@@ -1,13 +1,6 @@
 using Xamarin.Forms;
 using System;
 using ZXing;
-using System.IO;
-using ToDoList_Xamarin_SQLite.Models;
-using System.Numerics;
-using Xamarin.CommunityToolkit.UI.Views;
-using Android.Content;
-using Android.Media;
-using Android;
 using ToDoList_Xamarin_SQLite.Services;
 
 namespace ToDoList_Xamarin_SQLite.Views
@@ -18,7 +11,7 @@ namespace ToDoList_Xamarin_SQLite.Views
 
         public ScanBarCode()
         {
-            InitializeComponent();           
+            InitializeComponent();     
         }
 
         protected override void OnAppearing()
@@ -27,8 +20,6 @@ namespace ToDoList_Xamarin_SQLite.Views
             BarcodeScanView.IsTorchOn = false;
         }
 
-        MediaPlayer player, mediaPlayer;
-        Context context;
         public async void Handle_OnScanResult(Result result)
         {
             Device.BeginInvokeOnMainThread(async () =>
@@ -42,7 +33,7 @@ namespace ToDoList_Xamarin_SQLite.Views
 
                         if (string.IsNullOrWhiteSpace(result.Text))
                         {
-                            await DisplayAlert("Unfound", "Unidentified Barcode", "OK");
+                            await DisplayAlert("Not found", "Unknown Barcode! Please scan again. ", "OK");
                         }
                         else
                         {

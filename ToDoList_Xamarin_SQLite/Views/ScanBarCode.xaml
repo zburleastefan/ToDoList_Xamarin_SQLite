@@ -12,11 +12,12 @@
     </ContentPage.ToolbarItems>-->
 
     <StackLayout Spacing="40" Padding="30">
-        <Label TextColor="White"
-			   Text="Cautare articole" />
-        <!--<BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="White"/>-->
         <StackLayout>
-            <Entry IsEnabled="False" FontAttributes="Bold" Text="" x:Name="enCodBare" Placeholder="Scan Barcode"/>
+            <BoxView HorizontalOptions="FillAndExpand" HeightRequest="5" Color="Silver"/>
+            <StackLayout>
+                <Entry IsEnabled="True" FontAttributes="Bold" Text="" x:Name="enCodBare" Placeholder="Scan Barcode"/>
+            </StackLayout>
+            <BoxView HorizontalOptions="FillAndExpand" HeightRequest="5" Color="Silver"/>
             <Button Text="Flash On" Clicked="TorchButton_Clicked" x:Name="flashBtn" BackgroundColor="Green"/>
             <zxing:ZXingScannerView 
                 x:Name="BarcodeScanView" 
