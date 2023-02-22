@@ -2,6 +2,6 @@
 
 Includes:
 
-Player
-Local Database ToDo list
-Scan Barcode
+Player page,
+Local Database ToDo list page,
+Scan Barcode page
