@@ -1,7 +1,5 @@
 # ToDoList_Xamarin_SQLite
 
-Includes:
+Xamarin app which Includes:  
 
-Player page,
-Local Database ToDo list page,
-Scan Barcode page
+Media Player page, ToDolist page (Local Database), Scan Barcode page
