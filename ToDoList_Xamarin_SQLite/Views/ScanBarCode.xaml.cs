@@ -8,6 +8,7 @@ using Xamarin.CommunityToolkit.UI.Views;
 using Android.Content;
 using Android.Media;
 using Android;
+using ToDoList_Xamarin_SQLite.Services;
 
 namespace ToDoList_Xamarin_SQLite.Views
 {
@@ -26,7 +27,8 @@ namespace ToDoList_Xamarin_SQLite.Views
             BarcodeScanView.IsTorchOn = false;
         }
 
-        MediaPlayer player;
+        MediaPlayer player, mediaPlayer;
+        Context context;
         public async void Handle_OnScanResult(Result result)
         {
             Device.BeginInvokeOnMainThread(async () =>
@@ -44,37 +46,21 @@ namespace ToDoList_Xamarin_SQLite.Views
                         }
                         else
                         {
-                            //"android.resource.raw://click";
-                            //assets/ https://jfversluis.dev/Sample.mp3 
-                            string filename = "https://jfversluis.dev/Sample.mp3";                        
+                            //play audio from URL
+                            //string filename = "https://jfversluis.dev/Sample.mp3";
                             //mp = new MediaPlayer();
-                            //try { mp.SetDataSource(filename); } catch (Exception e) { await Application.Current.MainPage.DisplayAlert("e1", e.Message, "OK"); }
-                            //try { mp.Prepare(); } catch (Exception e) { await Application.Current.MainPage.DisplayAlert("e2", e.Message, "OK"); }
+                            //try { mp.SetDataSource(filename); } catch (Exception e) { await Application.Current.MainPage.DisplayAlert("e1", e.Message, "OK");}
+                            //try { mp.Prepare(); } catch (Exception e) { await Application.Current.MainPage.DisplayAlert("e2", e.Message, "OK");}
                             //mp.Start();
 
                             enCodBare.Text = result.Text;
                             _isScanning = true;
                             BarcodeScanView.IsAnalyzing = true;
 
-                            //player = MediaPlayer.Create(this, Resource.Raw.y1); // play in Backgroud music
                             try
-                            {
-                                //player = new MediaPlayer();
-                                //player = MediaPlayer.Create(this, Resource.Raw.y1);
-                                //player.Start();
-
-                                //player = new MediaPlayer();
-                                // Android.Net.Uri uri = Android.Net.Uri.Parse("android.resource.raw:y1.mp3" + Resource.Raw.y1);
-                                //player.SetDataSource(this, uri);
-                                //player.Prepare();
-                                //player.Start();
-
-                            }
-                            catch (Exception ex)
-                            {
-                                await App.Current.MainPage.DisplayAlert("", "Player error: " + ex.Message, "OK");
-                            }
-                            
+                            { DependencyService.Get<IAudioPlayerService>().PlayAudioFile("BarcodeScannerBeep.mp3"); /*music from Assets folder - Android*/}
+                            catch (Exception e1)
+                            { await Application.Current.MainPage.DisplayAlert("player set path error: ", e1.Message, "OK"); }
                             //await Shell.Current.GoToAsync("..");
                         }
                     }
@@ -86,7 +72,7 @@ namespace ToDoList_Xamarin_SQLite.Views
             });
         }
 
-        private void Button_Clicked(object sender, EventArgs e)
+        private void TorchButton_Clicked(object sender, EventArgs e)
         {
             Device.BeginInvokeOnMainThread(() =>
             {

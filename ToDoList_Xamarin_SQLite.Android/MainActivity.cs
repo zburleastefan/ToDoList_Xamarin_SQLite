@@ -11,31 +11,24 @@ namespace ToDoList_Xamarin_SQLite.Droid
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         MediaPlayer player = new MediaPlayer();
-        MediaPlayer _formsMediaManager = new MediaPlayer();
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
             Xamarin.Essentials.Platform.Init(Application);
             ZXing.Net.Mobile.Forms.Android.Platform.Init();
-            
-
+           
             LoadApplication(new App());
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-        }
 
-        public void PlayMethodInAndroidActivity()
-        {
-            //var mediaUrl = "android.resource://" + Resources.GetResourcePackageName(Resource.Raw.y1);
-            player = MediaPlayer.Create(this, Resource.Raw.y1);
-            player.Start();
+            //player = MediaPlayer.Create(this, Resource.Raw.y1);
+            //player.Start();
         }
     }
 }
