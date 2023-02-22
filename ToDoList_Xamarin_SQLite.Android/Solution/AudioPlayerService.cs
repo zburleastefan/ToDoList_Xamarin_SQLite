@@ -39,5 +39,10 @@ namespace ToDoList_Xamarin_SQLite.Droid.Solution
         {
             player.Pause();
         }
+        
+        public void Next()
+        {
+            //player.SetNextMediaPlayer(MediaPlayer switch );
+        }
     }
 }

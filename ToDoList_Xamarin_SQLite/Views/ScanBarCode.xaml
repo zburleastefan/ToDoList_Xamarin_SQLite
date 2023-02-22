@@ -22,7 +22,7 @@
             <zxing:ZXingScannerView 
                 x:Name="BarcodeScanView" 
                 HeightRequest="200" 
-                OnScanResult="Handle_OnScanResult"
+                OnScanResult="ScanBarcode"
                 IsEnabled="True"
                 IsScanning="True"
                 />

@@ -1,7 +1,5 @@
 ﻿using System;
-using System.ComponentModel;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 using ToDoList_Xamarin_SQLite.Models;
 
 namespace ToDoList_Xamarin_SQLite.Views
@@ -26,14 +24,11 @@ namespace ToDoList_Xamarin_SQLite.Views
                 await App.Database.SavePersonAsync(new Person
                 {
                     Name = nameEntry.Text,
-
                     Subscribed = subscribed.IsChecked ? "Subcribed" : "Unsubscribed"
-
                 });
 
                 nameEntry.Text = string.Empty;
                 subscribed.IsChecked = false;
-
                 collectionView.ItemsSource = await App.Database.GetPeopleAsync();
             }
         }
@@ -61,8 +56,6 @@ namespace ToDoList_Xamarin_SQLite.Views
         {
             var item = sender as SwipeItem;
             var person = item.CommandParameter as Person;
-            //await Navigation.PushAsync(new AddPersonPage());
-            //await App.Database.DeletePersonAsync(person);
             await App.Current.MainPage.DisplayAlert("", "Edited", "OK");
         }
 
@@ -76,7 +69,6 @@ namespace ToDoList_Xamarin_SQLite.Views
                 await App.Database.DeletePersonAsync(person);
                 collectionView.ItemsSource = await App.Database.GetPeopleAsync();
             }
-            //await Navigation.PushAsync(new AddPersonPage());
             // This will push the ItemDetailPage onto the navigation stack
             //await Shell.Current.GoToAsync($"{nameof(ItemDetailPage)}?{nameof(ItemDetailViewModel.ItemId)}={item.Id}");
             // This will pop the current page off the navigation stack

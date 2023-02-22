@@ -20,7 +20,7 @@ namespace ToDoList_Xamarin_SQLite.Views
             BarcodeScanView.IsTorchOn = false;
         }
 
-        public async void Handle_OnScanResult(Result result)
+        public async void ScanBarcode(Result result)
         {
             Device.BeginInvokeOnMainThread(async () =>
             {
@@ -61,6 +61,7 @@ namespace ToDoList_Xamarin_SQLite.Views
                     await Application.Current.MainPage.DisplayAlert("", x.Message, "OK");
                 }
             });
+            await Application.Current.MainPage.DisplayAlert("Scan result", enCodBare.Text, "OK");
         }
 
         private void TorchButton_Clicked(object sender, EventArgs e)

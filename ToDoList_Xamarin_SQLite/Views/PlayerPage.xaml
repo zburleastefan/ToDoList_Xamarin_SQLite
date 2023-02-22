@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ToDoList_Xamarin_SQLite.Views.PlayerPage"
+             Title="Player Page">
+    <ContentPage.Content>
+        <StackLayout>
+            <Button Margin="0,10,0,0" Text="Youtube Music"
+                        Clicked="ButtonBrowser_Clicked"
+                        BackgroundColor="{StaticResource Primary}"
+                        TextColor="White" />
+            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Orientation="Horizontal" Spacing="10">
+                <Button Text="Start" Clicked="ButtonStart_Clicked" HorizontalOptions="StartAndExpand" BackgroundColor="Green" Padding="5"/>
+                <Button Text="Pause" Clicked="ButtonPause_Clicked" HorizontalOptions="CenterAndExpand" BackgroundColor="{StaticResource Primary}" Padding="5"/>
+                <Button Text="Stop" Clicked="ButtonStop_Clicked" HorizontalOptions="EndAndExpand" BackgroundColor="Red" Padding="5"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
