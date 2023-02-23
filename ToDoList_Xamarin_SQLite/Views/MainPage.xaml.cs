@@ -48,15 +48,19 @@ namespace ToDoList_Xamarin_SQLite.Views
         {
             var item = sender as SwipeItem;
             var toDoList = item.CommandParameter as toDoList;
-            string edit = await DisplayPromptAsync("Edit Task", "Edit task name: ");
+            string edit = await DisplayPromptAsync("Edit Task", "Edit task name: ", placeholder: "Type someting or hit Cancel");
+
             while (edit == string.Empty)
             {
-                await DisplayAlert("", "Please type someting or hit Cancel.", "OK");
-                edit = await DisplayPromptAsync("Edit Task", "Edit task name: ");
-            }     
-            toDoList.Name = edit;
-            await App.Database.EditToDoListAsync(toDoList);
-            collectionView.ItemsSource = await App.Database.GetToDoListAsync();                
+                edit = await DisplayPromptAsync("Edit Task", "Edit task name: ", placeholder: "Type someting or hit Cancel");
+            }
+
+            if (edit != null)
+            {
+                toDoList.Name = edit;
+                await App.Database.EditToDoListAsync(toDoList);
+                collectionView.ItemsSource = await App.Database.GetToDoListAsync();
+            }                      
         }
 
         async void SwipeItemDelete_Invoked(object sender, EventArgs e)
