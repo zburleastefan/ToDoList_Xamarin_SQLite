@@ -14,22 +14,21 @@ namespace ToDoList_Xamarin_SQLite.Views
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            collectionView.ItemsSource = await App.Database.GetPeopleAsync();
+            collectionView.ItemsSource = await App.Database.GetToDoListAsync();
         }
 
         async void OnAddClicked(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(nameEntry.Text))
             {
-                await App.Database.SavePersonAsync(new Person
+                await App.Database.SaveToDoListAsync(new toDoList
                 {
                     Name = nameEntry.Text,
-                    Subscribed = subscribed.IsChecked ? "Subcribed" : "Unsubscribed"
+                    Subscribed = subscribed.IsChecked ? "Subcribed" : "Unsubscribed",
                 });
-
                 nameEntry.Text = string.Empty;
-                subscribed.IsChecked = false;
-                collectionView.ItemsSource = await App.Database.GetPeopleAsync();
+                subscribed.IsChecked = false;               
+                collectionView.ItemsSource = await App.Database.GetToDoListAsync();
             }
         }
 
@@ -38,41 +37,30 @@ namespace ToDoList_Xamarin_SQLite.Views
             var result = await DisplayAlert("Delete All from Database", "Erase all Tasks?", "Yes", "No");
             if (result)
             {
-                await App.Database.ErasePersonTableAsync();
-                collectionView.ItemsSource = await App.Database.GetPeopleAsync();
+                await App.Database.EraseToDoListTableAsync();
+                collectionView.ItemsSource = await App.Database.GetToDoListAsync();
             }  
-
             nameEntry.Text = string.Empty;
             subscribed.IsChecked = false;           
-        }
-
-        private void ToolbarItem_Clicked(object sender, EventArgs e)
-        {
-            //await Navigation.PushAsync(new AddPersonPage());
-            //Main. OpenGoogleCommand;
         }
 
         async void SwipeItemEdit_Invoked(object sender, EventArgs e)
         {
             var item = sender as SwipeItem;
-            var person = item.CommandParameter as Person;
+            var person = item.CommandParameter as toDoList;
             await App.Current.MainPage.DisplayAlert("", "Edited", "OK");
         }
 
         async void SwipeItemDelete_Invoked(object sender, EventArgs e)
         {
             var item = sender as SwipeItem;
-            var person = item.CommandParameter as Person;
+            var person = item.CommandParameter as toDoList;
             var result = await DisplayAlert("Delete", $"Delete {person.Name} from Database?", "Yes", "No");
             if (result)
             {
-                await App.Database.DeletePersonAsync(person);
-                collectionView.ItemsSource = await App.Database.GetPeopleAsync();
-            }
-            // This will push the ItemDetailPage onto the navigation stack
-            //await Shell.Current.GoToAsync($"{nameof(ItemDetailPage)}?{nameof(ItemDetailViewModel.ItemId)}={item.Id}");
-            // This will pop the current page off the navigation stack
-            //await Shell.Current.GoToAsync("..");
+                await App.Database.DeleteToDoListAsync(person);
+                collectionView.ItemsSource = await App.Database.GetToDoListAsync();
+            }         
         }
     }
 }

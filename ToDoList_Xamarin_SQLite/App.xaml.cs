@@ -1,8 +1,6 @@
 ﻿using System;
-using ToDoList_Xamarin_SQLite.Views;
 using ToDoList_Xamarin_SQLite.Models;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 using System.IO;
 
 namespace ToDoList_Xamarin_SQLite
@@ -16,9 +14,8 @@ namespace ToDoList_Xamarin_SQLite
             {
                 if (database == null)
                 {
-                    database = new Database(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3"));
+                    database = new Database(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "toDoList.db3"));
                 }
-
                 return database;
             }
         }

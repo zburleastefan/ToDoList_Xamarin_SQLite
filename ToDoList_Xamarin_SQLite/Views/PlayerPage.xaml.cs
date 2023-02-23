@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ToDoList_Xamarin_SQLite.Services;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -16,12 +12,13 @@ namespace ToDoList_Xamarin_SQLite.Views
         public PlayerPage()
         {
             InitializeComponent();
+            lbPinkPanter.Text += Environment.NewLine + "https://www.youtube.com/watch?v=lp6z3s1Gig0";
         }
 
         private async void ButtonStart_Clicked(object sender, EventArgs e)
         {
             try
-            { DependencyService.Get<IAudioPlayerService>().PlayAudioFile("Music1.mp3"); /*music from Assets folder - Android*/}
+            { DependencyService.Get<IAudioPlayerService>().PlayAudioFile("the-pink-panther-theme-music.mp3"); /*music from Assets folder - Android*/}
             catch (Exception e1)
             { await Application.Current.MainPage.DisplayAlert("player set path error: ", e1.Message, "OK"); }
         }
@@ -45,7 +42,7 @@ namespace ToDoList_Xamarin_SQLite.Views
         private async void ButtonBrowser_Clicked(object sender, EventArgs e)
         {
             try
-            { await Browser.OpenAsync("https://music.youtube.com/watch?v=cURqHmXD1b8&list=OLAK5uy_meMYjt8zjeDzNMjTAUyDDf94MqYxxZMTw"); }
+            { await Browser.OpenAsync("https://music.youtube.com"); }
             catch (Exception e1)
             { await Application.Current.MainPage.DisplayAlert("Browser error: ", e1.Message, "OK"); }
         }

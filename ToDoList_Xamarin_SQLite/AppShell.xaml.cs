@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using ToDoList_Xamarin_SQLite.ViewModels;
-using ToDoList_Xamarin_SQLite.Views;
+﻿using ToDoList_Xamarin_SQLite.Views;
 using Xamarin.Forms;
 
 namespace ToDoList_Xamarin_SQLite
 {
-    public partial class AppShell : Xamarin.Forms.Shell
+    public partial class AppShell : Shell
     {
         public AppShell()
         {
@@ -16,6 +13,5 @@ namespace ToDoList_Xamarin_SQLite
             Routing.RegisterRoute(nameof(ScanBarCode), typeof(ScanBarCode));
             Routing.RegisterRoute(nameof(PlayerPage), typeof(PlayerPage));
         }
-
     }
 }

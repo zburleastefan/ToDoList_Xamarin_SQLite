@@ -6,12 +6,8 @@
              xmlns:xct ="http://xamarin.com/schemas/2020/toolkit" 
              x:Class="ToDoList_Xamarin_SQLite.Views.ScanBarCode" 
 	         Title="Scan Barcode">
-   
-    <!--<ContentPage.ToolbarItems>
-        <ToolbarItem IconImageSource="home.png" Clicked="backToMainClicked"/>
-    </ContentPage.ToolbarItems>-->
 
-    <StackLayout Spacing="40" Padding="30">
+    <StackLayout Margin="20,55,20,20">
         <StackLayout>
             <BoxView HorizontalOptions="FillAndExpand" HeightRequest="5" Color="Silver"/>
             <StackLayout>

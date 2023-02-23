@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using ToDoList_Xamarin_SQLite.Views;
+﻿using ToDoList_Xamarin_SQLite.Views;
 using Xamarin.Forms;
 
 namespace ToDoList_Xamarin_SQLite.ViewModels
