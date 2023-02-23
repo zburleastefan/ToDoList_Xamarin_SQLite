@@ -42,7 +42,12 @@ namespace ToDoList_Xamarin_SQLite.Models
         {
             return _database.DeleteAsync(toDo);   
         }
-        
+
+        public Task<int> EditToDoListAsync(toDoList toDo)
+        {
+            return _database.UpdateAsync(toDo);
+        }
+
         public Task<int> EraseToDoListTableAsync()
         {
             return _database.DeleteAllAsync<toDoList>();

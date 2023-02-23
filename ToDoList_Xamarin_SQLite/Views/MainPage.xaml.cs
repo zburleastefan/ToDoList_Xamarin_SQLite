@@ -47,18 +47,26 @@ namespace ToDoList_Xamarin_SQLite.Views
         async void SwipeItemEdit_Invoked(object sender, EventArgs e)
         {
             var item = sender as SwipeItem;
-            var person = item.CommandParameter as toDoList;
-            await App.Current.MainPage.DisplayAlert("", "Edited", "OK");
+            var toDoList = item.CommandParameter as toDoList;
+            string edit = await DisplayPromptAsync("Edit Task", "Edit task name: ");
+            while (edit == string.Empty)
+            {
+                await DisplayAlert("", "Please type someting or hit Cancel.", "OK");
+                edit = await DisplayPromptAsync("Edit Task", "Edit task name: ");
+            }     
+            toDoList.Name = edit;
+            await App.Database.EditToDoListAsync(toDoList);
+            collectionView.ItemsSource = await App.Database.GetToDoListAsync();                
         }
 
         async void SwipeItemDelete_Invoked(object sender, EventArgs e)
         {
             var item = sender as SwipeItem;
-            var person = item.CommandParameter as toDoList;
-            var result = await DisplayAlert("Delete", $"Delete {person.Name} from Database?", "Yes", "No");
+            var toDoList = item.CommandParameter as toDoList;
+            var result = await DisplayAlert("Delete", $"Delete '{toDoList.Name}'?", "Yes", "No");
             if (result)
             {
-                await App.Database.DeleteToDoListAsync(person);
+                await App.Database.DeleteToDoListAsync(toDoList);
                 collectionView.ItemsSource = await App.Database.GetToDoListAsync();
             }         
         }
